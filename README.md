@@ -99,3 +99,7 @@ daily-worklog/
 - 只算本機 Claude Code。claude.ai 網頁版、手機 App、其他電腦的對話不在內。
 - 週用量是帳號層級，包含本機以外的用量，不能直接和報告裡的 token 數對應。
 - 對話紀錄的格式由 Claude Code 決定，改版後統計程式可能需要調整。
+
+## 授權
+
+MIT License，見 [LICENSE](LICENSE)。
