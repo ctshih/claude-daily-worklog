@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__標題__</title>
+<style>
+/* ============ 主題（深淺色自動切換；所有顏色一律用變數） ============ */
+:root{
+  --bg:#f7f8fa; --surface:#fff; --text:#1b2733; --soft:#5a6b7b; --border:#e2e8f0;
+  --accent:#2563eb; --accent-soft:#eff4ff; --ok:#16a34a; --warn:#d97706; --err:#dc2626;
+  --radius:12px; --mono:ui-monospace,"Cascadia Code",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1116;--surface:#161b22;--text:#e6edf3;--soft:#9aa7b4;--border:#2a313c;
+        --accent:#5b9bff;--accent-soft:#18233a;}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);line-height:1.75;font-size:15.5px;
+  font-family:-apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei","PingFang TC",Roboto,sans-serif;}
+.wrap{max-width:980px;margin:0 auto;padding:40px 26px 90px}
+h1{font-size:25px;margin:0 0 6px}
+h2{font-size:19px;margin:44px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+h3{font-size:16px;margin:26px 0 10px;padding-left:10px;border-left:3px solid var(--accent)}
+h4{font-size:15px;margin:20px 0 8px;color:var(--soft)}
+p{margin:0 0 12px}
+.sub{color:var(--soft);margin:0 0 18px}
+.byline{font-size:13px;color:var(--soft);background:var(--surface);border:1px solid var(--border);
+  border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 20px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.badge{font-size:12.5px;padding:3px 12px;border-radius:999px;background:var(--accent-soft);
+  color:var(--accent);border:1px solid var(--border);white-space:nowrap}
+.badge.g{background:#dcfce7;color:#15803d;border-color:#bbf7d0}
+@media (prefers-color-scheme:dark){.badge.g{background:#14532d;color:#86efac;border-color:#166534}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(16,24,40,.05)}
+code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+pre{background:#101623;color:#dbe6f5;border-radius:10px;padding:14px 18px;overflow-x:auto;
+  font-family:var(--mono);font-size:13px;line-height:1.7;margin:10px 0 16px}
+pre .c{color:#7d8ea8}   /* 註解 */
+pre .w{color:#f0b866}   /* warning */
+pre .e{color:#ff8b8b}   /* error */
+pre .ok{color:#7ee0a2}  /* 成功 */
+table{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:14px;background:var(--surface);
+  border-radius:10px;overflow:hidden}
+th,td{padding:9px 12px;border:1px solid var(--border);text-align:left;vertical-align:top}
+th{background:var(--accent-soft);font-size:13px}
+.tablewrap{overflow-x:auto}
+.ok{color:var(--ok);font-weight:700}
+.errc,.err{color:var(--err);font-weight:600}.warnc,.warn{color:var(--warn);font-weight:600}
+.tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.t-new{background:#dcfce7;color:#15803d}.t-chg{background:#fef3c7;color:#b45309}.t-same{background:var(--accent-soft);color:var(--soft)}
+@media (prefers-color-scheme:dark){.t-new{background:#14532d;color:#86efac}.t-chg{background:#3b2f0b;color:#f0c869}}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:6px 0}
+.timeline{list-style:none;padding:0;margin:14px 0}
+.timeline li{position:relative;padding:0 0 20px 30px;margin:0 0 0 9px;border-left:2px solid var(--border)}
+.timeline li:last-child{border-left-color:transparent}
+.timeline li::before{content:"";position:absolute;left:-8px;top:5px;width:14px;height:14px;
+  border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.timeline b.step{display:block;font-size:15px;margin-bottom:4px}
+.timeline .t{color:var(--soft);font-size:12.5px}
+figure{margin:18px 0;padding:16px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);text-align:center}
+figure img,figure svg{max-width:100%;height:auto}
+figcaption{margin-top:10px;font-size:13.5px;color:var(--soft);text-align:left;line-height:1.7}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.toc a{font-size:13px;padding:5px 13px;border-radius:999px;background:var(--surface);
+  border:1px solid var(--border);color:var(--soft);text-decoration:none}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--border);color:var(--soft);font-size:12.5px}
+.mono{font-family:var(--mono);font-size:12.5px;color:var(--soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ===== 頁首：emoji＋標題、副標、byline（誰／何時／怎麼做的）、badges（重點速覽） ===== -->
+<h1>__emoji__ __標題__</h1>
+<p class="sub">__一行副標：主題 · 日期__</p>
+<div class="byline">__本報告由誰、用什麼方法產出（模型／流程／資料來源）__</div>
+<div class="badges">
+  <span class="badge g">__完成的重點1__</span>
+  <span class="badge g">__完成的重點2__</span>
+  <span class="badge">__補充資訊__</span>
+</div>
+<nav class="toc">
+  <a href="#s1">1 __章節__</a>
+  <a href="#s2">2 __章節__</a>
+  <a href="#s3">3 __章節__</a>
+</nav>
+
+<!-- ===== 章節：id 要與 TOC 對應 ===== -->
+<h2 id="s1">1. __章節標題__</h2>
+<p>__內文__</p>
+
+<!-- 強調區塊：動機、結論、重要提醒 -->
+<div class="card">
+<p>__重點段落__</p>
+</div>
+
+<!-- 命令／輸出示例：.c 註解 .w warning .e error .ok 成功 -->
+<pre><span class="c"># 註解說明</span>
+command --flag
+<span class="ok">成功訊息</span>
+<span class="w">[warn ] 警告訊息</span>
+<span class="e">[error] 錯誤訊息</span></pre>
+
+<!-- 表格（矩陣、參數表、對照表）一律包 .tablewrap 以便小螢幕橫捲 -->
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>說明</th><th>結果</th></tr>
+<tr><td>__項__</td><td>__說明__</td><td class="ok">✓ __通過__</td></tr>
+<tr><td>__項__</td><td>__說明__</td><td class="errc">✗ __失敗__</td></tr>
+</table></div>
+
+<!-- 時間軸（過程敘事用） -->
+<ul class="timeline">
+<li><b class="step">① __步驟__</b><span class="t">__補充__</span>
+__做了什麼__</li>
+<li><b class="step">② __步驟__</b>
+__做了什麼__</li>
+</ul>
+
+<h2 id="s2">2. __結果與圖表__</h2>
+<!-- 圖表：inline SVG 優先（顏色用 var(--) 才能深淺色自適應）；
+     點陣圖用 <img src="data:image/png;base64,..."> 內嵌。
+     figcaption 要詳細：呈現什麼、軸與顏色意義、讀者該看出的結論。
+     ⚠ SVG 內嵌 <style> 的 class 是「整份文件全域」——多張圖時，每張的
+     選擇器都要像下面一樣用該圖的 id 作前綴（#fig1 .axis），否則第二張圖
+     的同名 class 會覆蓋第一張的樣式。 -->
+<figure>
+<svg id="fig1" viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="__圖的用途__">
+  <style>
+    #fig1 .axis{stroke:var(--soft);stroke-width:1.5}
+    #fig1 .lbl{fill:var(--text);font:13px -apple-system,"Noto Sans TC",sans-serif}
+    #fig1 .series{stroke:var(--accent);stroke-width:2;fill:none}
+  </style>
+  <!-- __在此作圖__ -->
+  <line class="axis" x1="60" y1="260" x2="660" y2="260"/>
+  <line class="axis" x1="60" y1="30"  x2="60"  y2="260"/>
+</svg>
+<figcaption><b>圖 N</b>：__呈現什麼；軸／顏色／符號的意義；該看出的結論。__</figcaption>
+</figure>
+
+<h2 id="s3">3. 限制與注意事項</h2>
+<ul>
+<li>__已知限制、適用範圍、讀者該注意的事__</li>
+</ul>
+
+<div class="foot">
+__產出物清單／資料位置__<br>
+報告生成：__日期__ · __環境（OS／Python／關鍵套件版本）__
+</div>
+
+</div>
+</body>
+</html>
