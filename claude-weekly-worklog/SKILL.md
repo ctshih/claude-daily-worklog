@@ -21,9 +21,10 @@ description: >-
   - 放 `stats.json`、`plan.json`、`get_usage.json`、`usage.json`、`summaries.json`、`parts/`。
 - `summaries.json` 是文字摘要的唯一來源，同一期間重跑時沿用並補寫，不要從頭重寫。
 - 報告資料夾：環境變數 `WORKLOG_DIR`，沒設定時用 `~/claude-worklog/`；使用者指定位置時用指定的。
-  - 7 天：`工作週報-<起日>-<迄日>.html`
-  - 其他天數：`期間工作日誌-<起日>-<迄日>.html`
-  - 單日：`本日工作日誌-<YYYYMMDD>.html`
+  - 7 天：`工作週報-<起日>-<迄日>-<電腦名稱>.html`
+  - 其他天數：`期間工作日誌-<起日>-<迄日>-<電腦名稱>.html`
+  - 單日：`本日工作日誌-<YYYYMMDD>-<電腦名稱>.html`
+  - `<電腦名稱>`：Windows 取環境變數 `COMPUTERNAME`，macOS 與 Linux 取 `hostname` 指令的輸出。報告資料夾常會跨機同步，檔名帶電腦名稱，各台的報告才不會互相覆蓋。
 - Windows 的 Python 預設輸出可能不是 UTF-8，在 Windows 上每個指令前加 `PYTHONIOENCODING=utf-8`。
 
 ## 步驟

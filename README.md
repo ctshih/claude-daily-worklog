@@ -75,6 +75,8 @@ Copy-Item -Recurse claude-weekly-worklog\claude-weekly-worklog $HOME\.claude\ski
 
 舊版的 `DAILY_WORKLOG_*` 變數名仍然有效。中間資料放在 `~/.claude/worklog/` 底下，每段期間一個資料夾。
 
+報告檔名帶有電腦名稱，例如 `工作週報-20261007-20261013-MYPC.html`。報告資料夾放在雲端同步資料夾時，多台電腦產出的報告不會互相覆蓋。
+
 ## 隱私
 
 報告會**逐字列出你在期間內輸入的每一則要求**，也會寫出工作目錄路徑。分享報告之前請先看過內容。
